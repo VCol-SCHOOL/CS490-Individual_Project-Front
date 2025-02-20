@@ -1,0 +1,47 @@
+<mat-form-field>
+    <mat-label>Search for film</mat-label>
+    <input matInput placeholder="Id,title, etc" (keyup)="onSearch($event)" />
+</mat-form-field>
+
+<div class="scrollable-table" style="width: 600px; margin: 10px;">
+    <table style="width: 100%;" mat-table [dataSource]="data3">    
+      <!-- id Column -->
+      <ng-container matColumnDef="film_id">
+        <th mat-header-cell *matHeaderCellDef> Film ID
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.film_id}} </td>
+      </ng-container>
+    
+      <!-- title Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Film Title </th>
+        <td mat-cell *matCellDef="let element"> 
+          <button mat-raised-button 
+          (click)="openDialog(element.release_year, element.description)">
+            {{element.title}}
+          </button> 
+        </td>
+      </ng-container>
+
+      <!-- name Column -->
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> Category </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actname">
+        <th mat-header-cell *matHeaderCellDef> Actor </th>
+        <td mat-cell *matCellDef="let element"> {{element.first_name}} {{element.last_name}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="cols3"></tr>
+      <tr mat-row *matRowDef="let row; columns: cols3;"></tr>
+    </table>
+
+    <mat-paginator 
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page">
+    </mat-paginator>
+  </div>
