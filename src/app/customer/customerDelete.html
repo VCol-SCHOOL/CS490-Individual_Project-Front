@@ -1,0 +1,13 @@
+<form [formGroup]="form">
+    <mat-form-field>
+        <mat-label>Select a valid customer id to delete </mat-label>
+        <input matInput formControlName="customer_id"/>
+    </mat-form-field>
+</form>
+
+<div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close (click)="submitDelete()">Submit</button>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close (click)="onNoClick()">Close</button>
+</div>

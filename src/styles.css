@@ -8,4 +8,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     overflow-y: auto;
 }
 
-a { color: inherit; text-decoration: none; } 
+a { color: inherit; text-decoration: none; }
+mat-card-title { color: white; text-decoration: none; } 
+mat-card-content { color: white; text-decoration: none; } 
+
+
+html{
+    background-color: #a297c9;
+}

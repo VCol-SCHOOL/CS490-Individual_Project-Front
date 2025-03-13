@@ -1,0 +1,31 @@
+<div style="display:none;">{{data[0].title}}</div>
+<div class="scrollable-table" style="width: 400px; margin: 10px; ">
+    <table style="width: 100%;" mat-table [dataSource]="data">
+      <thead>History</thead>
+
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Film Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="rented_date">
+        <th mat-header-cell *matHeaderCellDef> Rented On </th>
+        <td mat-cell *matCellDef="let element"> {{element.rental_date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="return_date">
+        <th mat-header-cell *matHeaderCellDef> Returned on </th>
+        <td mat-cell *matCellDef="let element">
+            <div *ngIf="element.return_date">{{element.return_date}} </div> 
+            <div *ngIf="!element.return_date">Not Returned</div>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="cols"></tr>
+      <tr mat-row *matRowDef="let row; columns: cols;"></tr>
+    </table>
+  </div>
+
+<div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close (click)="onNoClick()">Close</button>
+</div>

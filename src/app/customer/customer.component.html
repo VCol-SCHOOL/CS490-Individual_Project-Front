@@ -1,11 +1,25 @@
-<mat-form-field>
+
+<div style="display: flex;">
+<mat-form-field style="margin-left: 4px;">
     <mat-label>Search for user</mat-label>
     <input matInput placeholder="name" (keyup)="onSearch($event)" />
 </mat-form-field>
+<button mat-raised-button style="margin-left: 4px;"
+    (click)="openAdd()">
+    Add customer
+</button>
+<button mat-raised-button style="margin-left: 4px;"
+    (click)="openDelete()">
+    Delete customer
+</button>
+<button mat-raised-button style="margin-left: 4px;"
+    (click)="openUpdate()">
+    update customer
+</button> 
+</div>
 
-<div class="scrollable-table" flex>
+<div style="width: 100%; height: 100%">
     <table style="width: 100%;" mat-table [dataSource]="data4">    
-
       <ng-container matColumnDef="customer_id">
         <th mat-header-cell *matHeaderCellDef> Customer id </th>
         <td mat-cell *matCellDef="let element"> {{element.customer_id}} </td>
@@ -26,9 +40,28 @@
         <td mat-cell *matCellDef="let element"> {{element.email}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="creation">
         <th mat-header-cell *matHeaderCellDef> Date Created </th>
         <td mat-cell *matCellDef="let element"> {{element.create_date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="history">
+        <th mat-header-cell *matHeaderCellDef> Rental History </th>
+        <td mat-cell *matCellDef="let element">  
+          <button mat-raised-button (click)="openHist(element.customer_id)">
+            Veiw
+          </button>
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="lastUpdated">

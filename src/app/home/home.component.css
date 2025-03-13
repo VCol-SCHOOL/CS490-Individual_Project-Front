@@ -1,0 +1,9 @@
+.card-class{
+    margin-left: 10%;
+    margin-bottom: 10%;
+    width: 80%;
+    display: flex;
+    background-color: #917bad;
+    border-style: dashed;
+    padding: 20px;
+}

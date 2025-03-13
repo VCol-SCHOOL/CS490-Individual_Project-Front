@@ -1,0 +1,13 @@
+<form [formGroup]="form">
+    <mat-form-field>
+        <mat-label>Enter Customer id to rent this film</mat-label>
+        <input matInput formControlName="c_id"/>
+    </mat-form-field>
+</form>
+
+<div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close (click)="submitAdd()">Submit</button>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close (click)="onNoClick()">Close</button>
+</div>

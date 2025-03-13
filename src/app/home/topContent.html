@@ -1,0 +1,29 @@
+<div style="display:none;">{{data[0].film_id}}</div>
+<div class="scrollable-table" style="width: 355px; margin: 10px;">
+    <table style="width: 100%;" mat-table [dataSource]="data">
+      <thead>Top 5 films</thead>
+      <ng-container matColumnDef="film_id">
+        <th mat-header-cell *matHeaderCellDef> Film ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.film_id}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Film Title </th>
+        <td mat-cell *matCellDef="let element"> 
+            {{element.title}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="rented">
+        <th mat-header-cell *matHeaderCellDef> Ammount Rented </th>
+        <td mat-cell *matCellDef="let element"> {{element.rented}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="cols"></tr>
+      <tr mat-row *matRowDef="let row; columns: cols;"></tr>
+    </table>
+  </div>
+
+<div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close (click)="onNoClick()">Close</button>
+</div>

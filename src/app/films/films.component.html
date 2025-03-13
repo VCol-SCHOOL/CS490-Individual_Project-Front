@@ -3,7 +3,7 @@
     <input matInput placeholder="Id,title, etc" (keyup)="onSearch($event)" />
 </mat-form-field>
 
-<div class="scrollable-table" style="width: 600px; margin: 10px;">
+<div class="scrollable-table" style="width: 600px;  height: 700px; margin: 10px;">
     <table style="width: 100%;" mat-table [dataSource]="data3">    
       <!-- id Column -->
       <ng-container matColumnDef="film_id">
@@ -27,6 +27,14 @@
       <ng-container matColumnDef="category">
         <th mat-header-cell *matHeaderCellDef> Category </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="rent">
+        <th mat-header-cell *matHeaderCellDef> Rent film? </th>
+        <td mat-cell *matCellDef="let element"> <button mat-raised-button 
+          (click)="OpenRent(element.film_id)">
+            Select
+          </button> </td>
       </ng-container>
 
       <ng-container matColumnDef="actname">

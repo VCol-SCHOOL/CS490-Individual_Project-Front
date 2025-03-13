@@ -8,36 +8,41 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { FilmsComponent } from './films/films.component';
-import { CustomerComponent } from './customer/customer.component';
-import { HomeComponent } from './home/home.component';
+import { filmContent, filmRent, FilmsComponent } from './films/films.component';
+import { customerAdd, CustomerComponent, customerDelete, customerHistory, customerUpdate } from './customer/customer.component';
+import { HomeComponent, topContent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule, MatPaginator } from '@angular/material/paginator';
-import { MatDialogModule } from '@angular/material/dialog'
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatCard, MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilmsComponent,
     CustomerComponent,
-    HomeComponent
+    HomeComponent,
+    filmContent,
+    customerAdd,
+    customerDelete,
+    customerUpdate,
+    topContent,
+    customerHistory,
+    filmRent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatTableModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    MatInputModule,
+    MatTableModule, MatToolbarModule,
+    MatButtonModule, MatSelectModule, MatFormFieldModule, MatInputModule,
     MatPaginatorModule,
-    MatPaginator,
-    MatDialogModule,
-    BrowserModule,
-    BrowserAnimationsModule
+    MatPaginator, MatDialogModule,
+    BrowserModule, BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatCard, MatCardModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
